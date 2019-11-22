@@ -1,7 +1,7 @@
 class Snake {
 
   constructor() {
-    this.head = createVector(10, 10);
+    this.head = createVector(10, 110);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
@@ -9,7 +9,7 @@ class Snake {
     
     this.score = 1;
     this.size = 10;
-    this.food = createVector(200, 200);
+    this.food = createVector(200, 250);
   }
 
   show() {
@@ -35,8 +35,8 @@ class Snake {
   generateFood() {
     if (this.head.x === this.food.x && this.head.y === this.food.y) {
       do {
-        this.food.x = Math.floor(random(10, 390) / 10) * 10;
-        this.food.y = Math.floor(random(10, 390) / 10) * 10;
+        this.food.x = Math.floor(random(0, 390) / 10) * 10;
+        this.food.y = Math.floor(random(100, 490) / 10) * 10;
       } while (
         this.locations.forEach(location => location.x === this.food.x && location.y === this.food.y)
       )
@@ -58,7 +58,7 @@ class Snake {
     let death = false;
     
     if ( (this.head.x >= 391 || this.head.x <= -1) && (this.ydir === 0) ||
-         (this.head.y >= 391 || this.head.y <= -1) && (this.xdir === 0)
+         (this.head.y >= 491 || this.head.y <= 99) && (this.xdir === 0)
        ) {
       death = true;
     }
@@ -80,12 +80,12 @@ class Snake {
   }
   
   replay() {
-    this.head = createVector(10, 10);
+    this.head = createVector(10, 110);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
     this.ydir = 0;
-    this.food = createVector(200, 200);
+    this.food = createVector(200, 250);
     this.score = 1;
     loop();
   }
