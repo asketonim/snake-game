@@ -1,7 +1,7 @@
 class Snake {
 
   constructor() {
-    this.head = createVector(10, 110);
+    this.head = createVector(10, 10);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
@@ -13,7 +13,8 @@ class Snake {
   }
 
   show() {
-    fill(0)
+    fill("#745c97");
+    noStroke();
     this.locations.forEach(block => {
       rect(block.x, block.y, this.size, this.size);
     });
@@ -35,30 +36,34 @@ class Snake {
   generateFood() {
     if (this.head.x === this.food.x && this.head.y === this.food.y) {
       do {
-        this.food.x = Math.floor(random(0, 390) / 10) * 10;
-        this.food.y = Math.floor(random(100, 490) / 10) * 10;
+        this.food.x = Math.floor(random(0, 490) / 10) * 10;
+        this.food.y = Math.floor(random(0, 490) / 10) * 10;
       } while (
         this.locations.forEach(location => location.x === this.food.x && location.y === this.food.y)
       )
 
       return true;
     }
-    fill(255, 0, 0);
+    
+    fill("#f5b0cb");
     rect(this.food.x, this.food.y, this.size, this.size);
     return false;
   }
 
   grow() {
     this.locations.push(createVector(this.head.x, this.head.y));
-    console.log(this.score)
     this.score++;
+  }
+
+  getScore() {
+    return this.score;
   }
 
   death() {
     let death = false;
     
-    if ( (this.head.x >= 391 || this.head.x <= -1) && (this.ydir === 0) ||
-         (this.head.y >= 491 || this.head.y <= 99) && (this.xdir === 0)
+    if ( (this.head.x >= 491 || this.head.x <= -1) && (this.ydir === 0) ||
+         (this.head.y >= 491 || this.head.y <= -1) && (this.xdir === 0)
        ) {
       death = true;
     }
@@ -80,7 +85,7 @@ class Snake {
   }
   
   replay() {
-    this.head = createVector(10, 110);
+    this.head = createVector(10, 10);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
