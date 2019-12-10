@@ -8,6 +8,7 @@ class Snake {
     this.ydir = 0;
     
     this.score = 1;
+    this.window = 400
     this.size = 10;
     this.food = createVector(200, 250);
   }
@@ -36,8 +37,8 @@ class Snake {
   generateFood() {
     if (this.head.x === this.food.x && this.head.y === this.food.y) {
       do {
-        this.food.x = Math.floor(random(0, 490) / 10) * 10;
-        this.food.y = Math.floor(random(0, 490) / 10) * 10;
+        this.food.x = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
+        this.food.y = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
       } while (
         this.locations.forEach(location => location.x === this.food.x && location.y === this.food.y)
       )
@@ -62,8 +63,8 @@ class Snake {
   death() {
     let death = false;
     
-    if ( (this.head.x >= 491 || this.head.x <= -1) && (this.ydir === 0) ||
-         (this.head.y >= 491 || this.head.y <= -1) && (this.xdir === 0)
+    if ( (this.head.x >= this.window - 19 || this.head.x <= 9) && (this.ydir === 0) ||
+         (this.head.y >= this.window - 19 || this.head.y <= 9) && (this.xdir === 0)
        ) {
       death = true;
     }

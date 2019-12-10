@@ -3,8 +3,24 @@ html, body {
   padding: 0;
   background-color: aqua;
 }
+
 canvas {
   display: block;
   margin: 0 auto;
   margin-top: 5%;
+}
+
+option {
+  background-color: darkslategrey;
+  border-radius: 2px;
+
+
+}
+
+.size-selector {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  font-family: sans-serif;
+
 }
