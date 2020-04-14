@@ -1,13 +1,15 @@
-html, body {
+* {
   margin: 0;
   padding: 0;
-  background-color: aqua;
+}
+
+body {
+  height: 100vh;
 }
 
 canvas {
   display: block;
-  margin: 0 auto;
-  margin-top: 5%;
+  margin: auto 0;
 }
 
 option {
