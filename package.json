@@ -10,6 +10,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-p5js": "^1.0.1",
     "eslint-plugin-import": "^2.20.2"
   },
   "scripts": {

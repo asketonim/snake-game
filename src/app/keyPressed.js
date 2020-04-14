@@ -15,6 +15,8 @@ function keyPressed() {
     case 32:
       snake.replay();
       break;
+    default:
+      snake.show();
   }
   return false;
 }

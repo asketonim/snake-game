@@ -1,22 +1,21 @@
 class Snake {
-
   constructor() {
     this.head = createVector(10, 10);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
     this.ydir = 0;
-    
+
     this.score = 1;
-    this.window = 400
+    this.window = 400;
     this.size = 10;
     this.food = createVector(200, 250);
   }
 
   show() {
-    fill("#745c97");
+    fill('#745c97');
     noStroke();
-    this.locations.forEach(block => {
+    this.locations.forEach((block) => {
       rect(block.x, block.y, this.size, this.size);
     });
   }
@@ -40,13 +39,14 @@ class Snake {
         this.food.x = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
         this.food.y = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
       } while (
-        this.locations.forEach(location => location.x === this.food.x && location.y === this.food.y)
-      )
+        this.locations.forEach((location) => location.x === this.food.x
+        && location.y === this.food.y)
+      );
 
       return true;
     }
-    
-    fill("#f5b0cb");
+
+    fill('#f5b0cb');
     rect(this.food.x, this.food.y, this.size, this.size);
     return false;
   }
@@ -62,29 +62,27 @@ class Snake {
 
   death() {
     let death = false;
-    
-    if ( (this.head.x >= this.window - 19 || this.head.x <= 9) && (this.ydir === 0) ||
-         (this.head.y >= this.window - 19 || this.head.y <= 9) && (this.xdir === 0)
-       ) {
-      death = true;
-    }
-    
+
+    if (((this.head.x >= this.window - 19 || this.head.x <= 9) && (this.ydir === 0))
+        || ((this.head.y >= this.window - 19 || this.head.y <= 9) && (this.xdir === 0))
+    ) death = true;
+
     this.locations.forEach((location, i) => {
       if (this.head.x === location.x && this.head.y === location.y && i) death = true;
-    })
-    
+    });
+
     if (death) {
       noLoop();
       textSize(32);
-      background(255)
-      text("GAME OVER", 100, 200);
+      background(255);
+      text('GAME OVER', 100, 200);
       textSize(24);
       text(`Score: ${this.score}`, 150, 250);
       textSize(16);
       text('Press \'SPACE\' to try again!', 100, 300);
     }
   }
-  
+
   replay() {
     this.head = createVector(10, 10);
     this.locations = [];
@@ -95,5 +93,4 @@ class Snake {
     this.score = 1;
     loop();
   }
-
 }

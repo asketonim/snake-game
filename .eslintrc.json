@@ -4,7 +4,8 @@
         "es6": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "p5js"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -14,5 +15,8 @@
         "ecmaVersion": 2018
     },
     "rules": {
+        "no-unused-vars": "warn",
+        "no-undef": "warn",
+        "no-plusplus": "off"
     }
 }
