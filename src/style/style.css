@@ -7,7 +7,7 @@ body {
   height: 100vh;
 }
 
-canvas {
+/* .p5Canvas {
   display: block;
   margin: auto 0;
 }
@@ -22,4 +22,4 @@ option {
   display: inline-block;
   color: white;
   font-family: sans-serif;
-}
+} */
