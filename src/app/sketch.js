@@ -1,20 +1,17 @@
 let snake;
-const windowSize = {
-  x: 400,
-  y: 400,
-};
+const windowSize = 600;
 
 function setup() {
-  const snakeField = createCanvas(windowSize.x, windowSize.y);
-  snake = new Snake();
+  const snakeField = createCanvas(windowSize - 1, windowSize - 1);
+  snake = new Snake(windowSize);
   frameRate(10);
 }
 
 function draw() {
-  background('#39375b');
-  buildWalls(windowSize.x);
+  background('#745c97');
+  buildWalls(windowSize, 20);
   if (snake.generateFood()) snake.grow();
   snake.updateOnMove();
   snake.show();
-  snake.death();
+  snake.checkDeath();
 }

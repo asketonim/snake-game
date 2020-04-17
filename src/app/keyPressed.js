@@ -16,7 +16,6 @@ function keyPressed() {
       snake.replay();
       break;
     default:
-      snake.show();
   }
   return false;
 }

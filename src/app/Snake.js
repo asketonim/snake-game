@@ -1,20 +1,20 @@
 class Snake {
-  constructor() {
-    this.head = createVector(10, 10);
+  constructor(windowSize) {
     this.locations = [];
-    this.locations.push(this.head);
     this.xdir = 0;
     this.ydir = 0;
-
     this.score = 1;
-    this.window = 400;
-    this.size = 10;
-    this.food = createVector(200, 250);
+    this.window = windowSize;
+    this.size = 20;
+    this.head = createVector(this.size, this.size);
+    this.locations.push(this.head);
+    this.food = createVector(200, 260);
   }
 
   show() {
     fill('#745c97');
-    noStroke();
+    strokeWeight(2);
+    stroke('#f2ed6f');
     this.locations.forEach((block) => {
       rect(block.x, block.y, this.size, this.size);
     });
@@ -36,17 +36,18 @@ class Snake {
   generateFood() {
     if (this.head.x === this.food.x && this.head.y === this.food.y) {
       do {
-        this.food.x = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
-        this.food.y = Math.floor(random(10, this.window - 2 * this.size) / 10) * 10;
-      } while (
-        this.locations.forEach((location) => location.x === this.food.x
-        && location.y === this.food.y)
-      );
+        this.food.x = Math
+          .floor(random(this.size, this.window - this.size) / this.size) * this.size;
+        this.food.y = Math
+          .floor(random(this.size, this.window - this.size) / this.size) * this.size;
+      } while (this.locations
+        .forEach((location) => location.x === this.food.x && location.y === this.food.y));
 
       return true;
     }
 
-    fill('#f5b0cb');
+    noStroke();
+    fill('#f2ed6f');
     rect(this.food.x, this.food.y, this.size, this.size);
     return false;
   }
@@ -60,11 +61,12 @@ class Snake {
     return this.score;
   }
 
-  death() {
+  checkDeath() {
     let death = false;
-
-    if (((this.head.x >= this.window - 19 || this.head.x <= 9) && (this.ydir === 0))
-        || ((this.head.y >= this.window - 19 || this.head.y <= 9) && (this.xdir === 0))
+    if (this.head.x >= this.window - 2 * this.size + 1
+        || this.head.x <= this.size - 1
+        || this.head.y >= this.window - 2 * this.size + 1
+        || this.head.y <= this.size - 1
     ) death = true;
 
     this.locations.forEach((location, i) => {
@@ -84,12 +86,12 @@ class Snake {
   }
 
   replay() {
-    this.head = createVector(10, 10);
+    this.head = createVector(this.size, this.size);
     this.locations = [];
     this.locations.push(this.head);
     this.xdir = 0;
     this.ydir = 0;
-    this.food = createVector(200, 250);
+    this.food = createVector(200, 260);
     this.score = 1;
     loop();
   }
