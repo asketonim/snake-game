@@ -9,6 +9,7 @@ class Snake {
     this.head = createVector(this.size, this.size);
     this.locations.push(this.head);
     this.food = createVector(200, 260);
+    this.dead = false;
   }
 
   show() {
@@ -63,20 +64,19 @@ class Snake {
   }
 
   checkDeath() {
-    let death = false;
     if (this.head.x >= this.window - 2 * this.size + 1
         || this.head.x <= this.size - 1
         || this.head.y >= this.window - 2 * this.size + 1
         || this.head.y <= this.size - 1
-    ) death = true;
+    ) this.dead = true;
 
     this.locations.forEach((location, i) => {
-      if (this.head.x === location.x && this.head.y === location.y && i) death = true;
+      if (this.head.x === location.x && this.head.y === location.y && i) this.dead = true;
     });
 
-    if (death) {
-      strokeWeight(1);
+    if (this.dead) {
       noLoop();
+      strokeWeight(1);
       textSize(32);
       background(255);
       text('GAME OVER', 100, 200);
@@ -95,6 +95,8 @@ class Snake {
     this.ydir = 0;
     this.food = createVector(200, 260);
     this.score = 1;
+    document.getElementById('score-value').innerHTML = '1';
+    this.dead = false;
     loop();
   }
 }
