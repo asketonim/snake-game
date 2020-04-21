@@ -55,6 +55,7 @@ class Snake {
   grow() {
     this.locations.push(createVector(this.head.x, this.head.y));
     this.score++;
+    document.getElementById('score-value').innerHTML = `${this.score}`;
   }
 
   getScore() {

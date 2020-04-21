@@ -7,19 +7,7 @@ body {
   height: 100vh;
 }
 
-.p5Canvas {
-  display: block;
-  margin: 0 auto;
+h1 {
+  text-align: center;
+  margin: 16px 0;
 }
-
-/* option {
-  background-color: darkslategrey;
-  border-radius: 2px;
-}
-
-.size-selector {
-  position: absolute;
-  display: inline-block;
-  color: white;
-  font-family: sans-serif;
-} */
