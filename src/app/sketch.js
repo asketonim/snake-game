@@ -4,11 +4,11 @@ const windowSize = 600;
 function setup() {
   const snakeField = createCanvas(windowSize - 1, windowSize - 1);
   snake = new Snake(windowSize);
-  frameRate(10);
+  frameRate(8);
 }
 
 function draw() {
-  background('#745c97');
+  background('#a3f7bf');
   buildWalls(windowSize, 20);
   if (snake.generateFood()) snake.grow();
   snake.updateOnMove();

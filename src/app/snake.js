@@ -12,9 +12,9 @@ class Snake {
   }
 
   show() {
-    fill('#745c97');
-    strokeWeight(2);
-    stroke('#f2ed6f');
+    fill('#f2ed6f');
+    strokeWeight(1);
+    stroke('#393e46');
     this.locations.forEach((block) => {
       rect(block.x, block.y, this.size, this.size);
     });
@@ -47,7 +47,7 @@ class Snake {
     }
 
     noStroke();
-    fill('#f2ed6f');
+    fill('#ec185d');
     rect(this.food.x, this.food.y, this.size, this.size);
     return false;
   }
@@ -74,6 +74,7 @@ class Snake {
     });
 
     if (death) {
+      strokeWeight(1);
       noLoop();
       textSize(32);
       background(255);

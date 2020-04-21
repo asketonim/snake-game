@@ -1,5 +1,6 @@
 const buildWalls = (size, blockSize) => {
-  stroke('#ff9171');
+  stroke('#393e46');
+  fill('#29a19c');
   strokeWeight(2);
 
   for (let i = 0; i <= size - blockSize; i += blockSize) {
