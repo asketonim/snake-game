@@ -75,19 +75,26 @@ class Snake {
     });
 
     if (this.dead) {
+      document.getElementById('score-label').style.display = 'none';
       noLoop();
-      strokeWeight(1);
-      textSize(32);
+      fill('#eb4559');
+      noStroke();
       background(255);
-      text('GAME OVER', 100, 200);
+      textSize(32);
+      textAlign(CENTER, TOP);
+      textStyle(BOLD);
+      text('GAME OVER', 0, 200, width);
+      fill('#393e46');
       textSize(24);
-      text(`Score: ${this.score}`, 150, 250);
+      textStyle(NORMAL);
+      text(`Score: ${this.score}`, 0, 250, width);
       textSize(16);
-      text('Press \'SPACE\' to try again!', 100, 300);
+      text('Press \'SPACE\' to try again!', 0, 300, width);
     }
   }
 
   replay() {
+    document.getElementById('score-label').style.display = 'block';
     this.head = createVector(this.size, this.size);
     this.locations = [];
     this.locations.push(this.head);
