@@ -3,23 +3,7 @@
   padding: 0;
 }
 
-body {
-  height: 100vh;
-}
-
-canvas {
-  display: block;
-  margin: auto 0;
-}
-
-option {
-  background-color: darkslategrey;
-  border-radius: 2px;
-}
-
-.size-selector {
-  position: absolute;
-  display: inline-block;
-  color: white;
-  font-family: sans-serif;
+h1 {
+  text-align: center;
+  margin: 16px 0;
 }

@@ -13,10 +13,9 @@ function keyPressed() {
       snake.setDir(1, 0);
       break;
     case 32:
-      snake.replay();
+      if (snake.dead) snake.replay();
       break;
     default:
-      snake.show();
   }
   return false;
 }
