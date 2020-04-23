@@ -56,7 +56,8 @@ class Snake {
 
     noStroke();
     fill('#ec185d');
-    rect(this.food.x, this.food.y, this.size, this.size);
+    // rect(this.food.x, this.food.y, this.size, this.size);
+    image(apple, this.food.x, this.food.y, this.size, this.size);
     return false;
   }
 
