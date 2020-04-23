@@ -17,6 +17,7 @@
     "rules": {
         "no-unused-vars": "off",
         "no-undef": "off",
-        "no-plusplus": "off"
+        "no-plusplus": "off",
+        "linebreak-style": "off"
     }
 }

@@ -1,5 +1,10 @@
 let snake;
+let apple;
 const windowSize = 600;
+
+function preload() {
+  apple = loadImage('../../assets/apple.png');
+}
 
 function setup() {
   const snakeField = createCanvas(windowSize - 1, windowSize - 1);
