@@ -34,6 +34,13 @@ class Snake {
     this.ydir = newY;
   }
 
+  getDir() {
+    return {
+      x: this.xdir,
+      y: this.ydir,
+    };
+  }
+
   generateFood() {
     if (this.head.x === this.food.x && this.head.y === this.food.y) {
       do {
